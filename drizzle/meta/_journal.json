@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1795253285970,
+      "tag": "0000_auth_foundation",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1795254920875,
+      "tag": "0001_reservations",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1795258115420,
+      "tag": "0002_legacy_sites",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1795258143519,
+      "tag": "0003_leg_vat_and_site_codes",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1795318045348,
+      "tag": "0004_widen_for_legacy",
+      "breakpoints": true
+    }
+  ]
+}
