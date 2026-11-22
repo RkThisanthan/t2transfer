@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Design tokens from the T2T Figma file (login frames 5:3834 and 5:4288). */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-900: #102e49; /* admin panel background, badge text */
+  --color-ink: #182b42; /* headings, labels, body text */
+  --color-muted: #69798c; /* secondary text, placeholders, icons */
+  --color-mist: #e5eef5; /* text on navy */
+  --color-line: #dfe6ed; /* input and checkbox borders */
+  --color-brand: #128fcb; /* primary blue: buttons, accents */
+  --color-brand-dark: #0873ac; /* links, eyebrow labels */
+  --color-accent-orange: #ff6734;
+  --color-accent-green: #6dc52c;
+  --color-danger: #d92d20;
+
+  /* Workspace screens (reservations frames 5:3882 / 5:4329) */
+  --color-canvas: #f5f7fa; /* page background, table header */
+  --color-brand-soft: #eaf6fc; /* active nav, avatar, pickup marker */
+  --color-green-soft: #eff8ea; /* drop marker */
+  --color-green-ink: #418c39;
+  --color-pending-soft: #fff3e3;
+  --color-pending-ink: #d98228;
+  --color-danger-soft: #fff1f0;
+  --color-danger-ink: #cd4a45;
+  --color-footer: #fafcfe;
+
+  --radius-panel: 20px;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+}
+
+/* Native date pickers keep working, but the Figma calendar icon is shown instead of the browser's. */
+@layer components {
+  .date-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
