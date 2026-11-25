@@ -7,6 +7,8 @@ type Props = {
   /** Total number of records, to show "Showing 21–40 of 100". */
   total?: number;
   pageSize?: number;
+  /** Plural noun for the empty state, e.g. "reservations" → "No reservations". */
+  itemLabel?: string;
 };
 
 /** Page numbers around the current page, with gaps: 1 … 4 5 [6] 7 8 … 20 */
@@ -22,7 +24,7 @@ function pageWindow(page: number, pageCount: number): Array<number | "gap"> {
 }
 
 // Figma "Pagination" (5:4039): "Page X of Y", First / page numbers / Next / Last.
-export function Pagination({ page, pageCount, hrefFor, total, pageSize }: Props) {
+export function Pagination({ page, pageCount, hrefFor, total, pageSize, itemLabel = "reservations" }: Props) {
   const base = "flex h-9 min-w-9 items-center justify-center rounded-md border px-3 text-[12px] font-semibold";
   const link = `${base} border-line bg-white text-brand-dark hover:bg-brand-soft`;
   const disabled = `${base} border-line bg-white text-muted`;
@@ -36,7 +38,7 @@ export function Pagination({ page, pageCount, hrefFor, total, pageSize }: Props)
         {total !== undefined && pageSize ? (
           <span>
             {" · "}
-            {total === 0 ? "No reservations" : `Showing ${from}–${to} of ${total.toLocaleString("en-GB")}`}
+            {total === 0 ? `No ${itemLabel}` : `Showing ${from}–${to} of ${total.toLocaleString("en-GB")}`}
           </span>
         ) : null}
       </p>

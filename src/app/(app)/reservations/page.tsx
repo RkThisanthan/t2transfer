@@ -54,7 +54,6 @@ export default async function ReservationsPage({ searchParams }: { searchParams:
   return (
     <div className="flex flex-col gap-6">
       <PageIntro
-        eyebrow="TRANSFER MANAGEMENT"
         title="Reservations"
         actions={canCreate ? <ButtonLink href="/reservations/new" variant="primary" className="w-full lg:w-auto">New reservation</ButtonLink> : null}
       />

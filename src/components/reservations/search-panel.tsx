@@ -1,5 +1,6 @@
 import Form from "next/form";
 import Link from "next/link";
+import { FilterAccordion } from "@/components/ui/filter-accordion";
 import { Icon } from "@/components/ui/icon";
 import { SITE_NAMES, TRIP_LABELS } from "@/lib/format";
 import type { ReservationFilters } from "@/server/reservations/service";
@@ -45,25 +46,8 @@ export function ReservationSearchPanel({ filters }: { filters: ReservationFilter
   // Accordion: closed by default, open while any filter is active (so the user sees what is applied).
   const activeCount = [filters.pickupDate, filters.createdDate, filters.reference, filters.q, filters.status, filters.site, filters.tripType, filters.deleted].filter(Boolean).length;
   return (
-    <details open={activeCount > 0} className="group rounded-xl border border-line bg-white">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl p-4 hover:bg-footer lg:px-6 [&::-webkit-details-marker]:hidden">
-        <span className="flex items-center gap-3">
-          <Icon name="sliders-horizontal" size={18} />
-          <h2 id="find-heading" className="text-[16px] text-ink">Find reservations</h2>
-          {activeCount > 0 ? (
-            <span className="rounded-full bg-brand-soft px-2.5 py-1 text-[11px] font-semibold text-brand-dark">
-              {activeCount} {activeCount === 1 ? "filter" : "filters"} active
-            </span>
-          ) : null}
-        </span>
-        <span className="flex items-center gap-1.5 text-[12px] font-semibold text-brand-dark">
-          <span className="hidden sm:inline sm:group-open:hidden">Show filters</span>
-          <span className="hidden sm:group-open:inline">Hide filters</span>
-          <Icon name="chevron-up" size={16} className="rotate-180 transition-transform duration-200 group-open:rotate-0" />
-        </span>
-      </summary>
-
-      <Form action="/reservations" scroll={false} className="flex flex-col gap-4 border-t border-line p-4 lg:p-6">
+    <FilterAccordion title="Find reservations" activeCount={activeCount}>
+      <Form action="/reservations" scroll={false} className="flex flex-col gap-4">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <DateField id="pickupDate" name="pickupDate" label="Pickup date" value={filters.pickupDate} />
           <DateField id="createdDate" name="createdDate" label="Created date" value={filters.createdDate} />
@@ -98,6 +82,6 @@ export function ReservationSearchPanel({ filters }: { filters: ReservationFilter
           </Link>
         </div>
       </Form>
-    </details>
+    </FilterAccordion>
   );
 }
