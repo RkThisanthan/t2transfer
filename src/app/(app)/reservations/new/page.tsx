@@ -14,7 +14,7 @@ export default async function NewReservationPage() {
   const [locationGroups, phoneCodes] = await Promise.all([getLocationGroups(), getPhoneCodes()]);
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6">
-      <PageIntro eyebrow="TRANSFER MANAGEMENT" title="New reservation" description="A reference number is created when you save." />
+      <PageIntro title="New reservation" description="A reference number is created when you save." />
       <ReservationForm
         action={createReservationAction}
         initial={NEW_RESERVATION_VALUES}

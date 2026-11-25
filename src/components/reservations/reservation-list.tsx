@@ -30,7 +30,7 @@ export function ReservationList({ items, names, canEdit, canDelete, deleteAction
       </div>
 
       {/* Column header stays visible while scrolling through the list (desktop only; mobile shows cards). */}
-      <div className="sticky top-0 z-10 hidden gap-6 border-b border-line bg-canvas px-6 py-3.5 text-[13px] font-extrabold text-ink lg:grid lg:grid-cols-[40px_230px_minmax(0,200px)_60px_160px_130px_170px_1fr]">
+      <div className="sticky top-0 z-10 hidden gap-6 lg:top-[142px] border-b border-line bg-canvas px-6 py-3.5 text-[13px] font-extrabold text-ink lg:grid lg:grid-cols-[40px_230px_minmax(0,200px)_60px_160px_130px_170px_1fr]">
         <span>#</span>
         <span>Booking / Service</span>
         <span>Customer</span>

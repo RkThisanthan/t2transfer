@@ -5,6 +5,7 @@ import { getPermissions, type PermissionKey } from "@/server/auth/permissions";
 
 const NAV: Array<NavItem & { permission?: PermissionKey }> = [
   { href: "/reservations", label: "Reservations", icon: "/icons/nav-calendar-days.svg", permission: "reservations.view" },
+  { href: "/locations", label: "Locations", icon: "/icons/map-pin.svg", permission: "locations.view" },
   // { href: "/rates", label: "Rates", icon: "/icons/nav-badge-dollar-sign.svg", permission: "rates.view" },
   // { href: "/testimonials", label: "Testimonials", icon: "/icons/nav-message-square.svg", permission: "testimonials.view" },
   // { href: "/driver-assign", label: "Driver Assign", icon: "/icons/nav-car-front.svg" },

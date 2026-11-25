@@ -39,7 +39,9 @@ export function ConfirmDialog({ open, title, message, confirmLabel, tone = "prim
       onClick={(e) => {
         if (e.target === e.currentTarget) onCancel(); // click on the backdrop
       }}
-      className="m-auto w-[calc(100%-32px)] max-w-md rounded-xl border border-line bg-white p-0 text-ink shadow-xl backdrop:bg-navy-900/40"
+      // Fixed + inset-0 + m-auto + h-fit keeps the box centred on screen wherever it sits in the page.
+      // text-left/font-normal: it inherits text styles from where it is placed (e.g. a right-aligned table cell).
+      className="fixed inset-0 m-auto h-fit max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-md overflow-y-auto rounded-xl border border-line bg-white p-0 text-left text-ink font-normal whitespace-normal shadow-xl backdrop:bg-navy-900/40"
     >
       <div className="flex flex-col gap-5 p-6">
         <div className="flex items-start gap-3">
